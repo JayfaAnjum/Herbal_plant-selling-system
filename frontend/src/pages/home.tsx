@@ -1,10 +1,11 @@
 import homeImg from '../assets/home2.jpg';
-
+import { useNavigate } from 'react-router-dom';
 export default function Home() {
+  const navigate = useNavigate();
   return (
   <>
 
-      <section className='shadow-4xl'>
+      <section className='shadow-4xl relative z-10'>
          <nav className="bg-[#4D7435] shadow-9xl relative  h-20">
            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
             <div className="flex justify-between h-16 items-center">
@@ -31,10 +32,11 @@ export default function Home() {
 
             
             <div className="flex space-x-4">
-              <button className="text-lg px-4 py-2 bg-transparent text-white border border-yellow-400 rounded hover:bg-green-700 hover:text-white transition">
+              <button className="text-lg px-4 py-2 bg-transparent text-white border border-yellow-400 rounded hover:bg-green-700 hover:text-white transition"
+              onClick={() => navigate('/login')}>
                 Login
               </button>
-              <button className="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-green-800 transition">
+              <button className="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-green-800 transition" onClick={() => navigate('/signup')}>
                 Signup
               </button>
             </div>

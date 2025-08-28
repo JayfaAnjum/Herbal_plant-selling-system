@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import React,{useState} from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../slices/authSlice";
 
 const Login:React.FC=()=>{
     // const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [username,setUsername]=useState("");
     const navigate=useNavigate();
+    const dispatch = useDispatch();
 
 const handleSubmit=async(e:React.FormEvent)=>{
     e.preventDefault();
@@ -17,6 +20,7 @@ const handleSubmit=async(e:React.FormEvent)=>{
         );
         alert(res.data.message);
         navigate('/dashboard');
+        dispatch(login(username));
     }catch(err:any){
         alert(err.reponse?.data?.message || err.message);
     }

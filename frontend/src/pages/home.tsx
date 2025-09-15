@@ -1,4 +1,4 @@
-import homeImg from '../assets/home2.jpg';
+import homeImg from './assets/home2.jpg';
 import { useNavigate } from 'react-router-dom';
 export default function Home() {
   const navigate = useNavigate();
